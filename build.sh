@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function compile()
+function compile() 
 {
 rm -rf AnyKernel
 source ~/.bashrc && source ~/.profile
@@ -11,7 +11,7 @@ if [ ! -d "clang" ]; then
     git clone https://gitlab.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-r547379.git clang --depth=1
 fi
 
-make O=out ARCH=arm64 nemo_defconfig
+make O=out ARCH=arm64 RM6785_defconfig
 
 PATH="${PWD}/clang/bin:${PATH}" \
 make -j$(nproc --all) O=out \
@@ -25,7 +25,7 @@ function zipping()
 git clone --depth=1 https://github.com/kardebayan/AnyKernel3.git AnyKernel
 cp out/arch/arm64/boot/Image.gz AnyKernel
 cd AnyKernel
-zip -r9 Stormbreaker-nemo-${TANGGAL}.zip *
+zip -r9 Stormbreaker-RMX2001L1-${TANGGAL}.zip *
 }
 
 compile
